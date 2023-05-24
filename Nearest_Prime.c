@@ -1,58 +1,49 @@
-#include<stdio.h>
-int is_prime(int);
-int pre_prime(int);
-int nex_prime(int);
+#include <stdio.h>
 int main()
 {
-	int k,n,a,b,i;
-	scanf("%d",&k);
-	for (i=1;i<=k;i++)
+	int m,j;
+	scanf("%d",&m);
+	for(j=1;j<=m;j++)
 	{
-	scanf("%d",&n);
-	a= pre_prime(n);
-	b= nex_prime(n);
-	if ((n-a)<=(b-n))
-	{
-		printf("%d
-",a);
-		
-	}
-	else
-	{
-		printf("%d
-",b);
-	}
-	}
-	
-}
-int is_prime(int m)
-{
-		int	fc=0,i;
-	for(i=1;i<=m;i++)
-	{
-
-		if(m%i==0)
+		int n;
+		scanf("%d",&n);
+		int pp=n;
+		while(1)
 		{
-			fc=fc+1;			
+			int fc=0;
+			int i;
+			for(i=1;i<=pp;i++)
+			{
+				if(pp%i==0)
+				{
+					fc++;
+				} 
+			}
+			if(fc==2)
+			{
+				break;
+			}
+			pp--;
 		}
+		int np=n;
+		while(1)
+		{
+			int fc=0;
+			int i;
+			for(i=1;i<=np;i++)
+			{
+				if(np%i==0) fc++;
+			}
+			if(fc==2)
+			{
+				break;
+			}
+			np++;
+		}
+		int res=n-pp<=np-n ? pp:np;
+		printf("%d
+",res);
 	}
-	return fc==2;
 }
 
 
-int pre_prime(int n)
-{
-	while (is_prime(n) == 0)
-	{
-		n--;
-	}
-	return n;
-}
-int nex_prime(int n)
-{
-	while(is_prime(n)==0)
-	{
-		n++;
-	}
-	return n;
-}
