@@ -1,20 +1,20 @@
-#include <stdio.h>
+#include<stdio.h>
+#define MAX_SIZE 100
 int main()
 {
-    int n;
-    scanf("%d", &n);
-    int arr[n];
-    int i;
-    for(i=0; i<n; i++)
+    int arr[MAX_SIZE];
+    int size,i,toSearch,found;
+    scanf("%d", &size);
+    for(i=0; i<size; i++)
     {
         scanf("%d", &arr[i]);
     }
-    int target;
-    scanf("%d", &target);
-    int found = 0;
-    for(i=0; i<n; i++)
+    scanf("%d", &toSearch);
+    found = 0; 
+    
+    for(i=0; i<size; i++)
     {
-        if(arr[i] == target)
+        if(arr[i] == toSearch)
         {
             found = 1;
             break;
@@ -28,4 +28,5 @@ int main()
     {
         printf("False");
     }
+    return 0;
 }
