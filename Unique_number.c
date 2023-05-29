@@ -10,17 +10,17 @@ int main()
         arr[digit]++;
         n=n/10;
     }
-    for(i=0;i<10;i++)
-    {
-        if(arr[i]>1)
+        for(i=0;i<10;i++)
         {
-            printf("Not Unique Number");
-            break;
+            if(arr[i]>1)
+            {
+                printf("Not Unique Number");
+                break;
+            }
         }
-    }
-    if(i==10)
-    {
-        printf("Unique Number");
-    }
-    return 0;
+        if(i==10)
+        {
+            printf("Unique Number");
+        }
+        return 0;
 }
